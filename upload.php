@@ -12,7 +12,7 @@ if(file_exists($targetAudioFile)){
 }else{
 	if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$targetAudioFile)){
 		echo "File uploaded Successfully!</br>";
-		$con =mysqli_connect('mysql.copelandwebdesign.com','copeland','5z2ojgwB!');	
+		$con =mysqli_connect('mysql.copelandwebdesign.com','--readacted--','-------');	
 		$query = mysqli_query($con,"select * from marcmusicplayer.TrackInfo order by id desc limit 1;");
 		$id=$query->fetch_array()['id']+1;
 		echo "Registered duration:";

@@ -17,7 +17,7 @@ if(!isset($_REQUEST['id'])&&!is_numeric($_REQUEST['time'])&&!isset($_REQUEST['ti
 	echo "Appropriate request information not set!";
 	exit;
 }
-$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","-------");
 if(mysqli_connect_errno()){
 	echo "There was an error when connecting.</br></br>".mysqli_connect_error();
 	exit;

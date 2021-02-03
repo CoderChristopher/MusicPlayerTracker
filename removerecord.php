@@ -16,7 +16,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 }
 if(!is_numeric($_REQUEST['i']))
 	exit;
-$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","-------");
 $res = mysqli_query($con,"delete from marcmusicplayer.Music where id=".$_REQUEST['i'].";");
 mysqli_close($con);
 ?>

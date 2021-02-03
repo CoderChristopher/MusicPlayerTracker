@@ -4,7 +4,7 @@
 	exit;
 }*/
 if(isset($_REQUEST['s'])&&is_numeric($_REQUEST['s'])){
-	$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+	$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","--------");
 	if(!isset($_REQUEST['g']))
 		$res = mysqli_query($con,"select count(time) from marcmusicplayer.Music where trackid=\"".$_REQUEST['s']."\";");	
 	else	

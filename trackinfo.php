@@ -15,7 +15,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS"&&!is_numeric($_REQUEST['i'])){
 	exit; 
 }
-$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","--------");
 if(isset($_REQUEST['i']))
 	$res = mysqli_query($con,"select * from marcmusicplayer.TrackInfo where id=".$_REQUEST['i'].";");	
 else

@@ -13,7 +13,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	}
 }
 if(isset($_REQUEST['s'])&&is_numeric($_REQUEST['s'])){
-	$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+	$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","----------");
 	$res = mysqli_query($con,"select avg(time) from marcmusicplayer.Music where time>0 and trackid=\"".$_REQUEST['s']."\";");	
 	echo $res->fetch_array()[0];
 	mysqli_close($con);

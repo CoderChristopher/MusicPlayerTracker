@@ -16,7 +16,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 }
 if(!is_numeric($_REQUEST['i']))
 	exit;
-$con = mysqli_connect("mysql.copelandwebdesign.com","copeland","5z2ojgwB!");
+$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","-------");
 $res = mysqli_query($con,"select * from marcmusicplayer.TrackInfo where id=".$_REQUEST['i'].";");
 $filename=$res->fetch_array()['audiourl'];
 if(strpos($filename,"copelandwebdesign.com")){
