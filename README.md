@@ -10,7 +10,7 @@ https://www.copelandwebdesign.com/Projects/musicplayer/
 this is a stripped down version that demonstrates the core project music player and stat capture. To respect my customer's privacy I prefer not to release the private details of his project. However, all the source code in this git repo is directly representitive of what is running in production currently.
 
 # Other Notes
-The only change I have made since May to this source code is I have gone through and annotated with comments various parts of the code to make in more clear what is going on. I have left all bugs, designs oversights, etc inside of the source because I want this be an accurate representation of my PHP/Javascript skills as of the time of the original project. There a few spots where I note things that with my increased understanding now I could have done better.
+The only change I have made since May to this source code is I have gone through and annotated with comments various parts of the code to make in more clear what is going on. I have left all bugs, designs oversights, etc inside of the source because I want this be an accurate representation of my PHP/Javascript skills as of the time of the original project. There a few spots where I note things that with my now increased understanding I could have done better.
 
 # Code Tour
 
