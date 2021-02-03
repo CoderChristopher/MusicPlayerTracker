@@ -31,7 +31,8 @@ The only change I have made since May to this source code is I have gone through
 
 	avgplaytime.php: This script performs a basic MYSQL query to
 	find the average listen time for a particular track id to be expressed
-	as a numeric time. On current review I can see that this is a redundant copy of the avgpercentage.php code, because my quess is that I
+	as a numeric time. On current review I can see that this is a
+	redundant copy of the avgpercentage.php code, because my quess is that I
 	originally had the two seperate *.php files perform the
 	percentage/actual calculation server side then send the results to
 	client side, but I later opted to push the calculation to client side
