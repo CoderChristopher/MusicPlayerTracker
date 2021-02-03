@@ -21,9 +21,14 @@ The only change I have made since May to this source code is I have gone through
 	a unique numeric identification. This allows for each player to have a
 	unique state and unique tracking in the system.
 
-	authenticate.php: This a simple script that take in a password
+	authenticate.php: This a simple script that takes in a password
 	from the request and then compares it against a stored hash of the
-	correct password.
+	correct password. In hindsight I see an obvious oversite in this
+	design where the script should also take an input of the current
+	password and verify that the password matches the current
+	password before changing the password to a new one. It would be
+	very simple for a nefarious cracker to send a new password to
+	this endpoint.
 
 	avgpercentage.php: This script performs a basic MYSQL query to
 	find the average listen time for a particular track id to be expressed
@@ -50,8 +55,8 @@ The only change I have made since May to this source code is I have gone through
 	countplaytime.php: This script performs a simple MYSQL query
 	to figure out how many plays a particular track has.
 
-	delete.php: This is the script that delete an audio file from
-	the system, its associated SQL Track Info, and also all of the tracks
+	delete.php: This is the script that deletes an audio file from
+	the system, its associated SQL Track Info, and also all of the track's
 	records.
 
 	index.php: A simple page the redirects a base request to the
@@ -62,7 +67,7 @@ The only change I have made since May to this source code is I have gone through
 	explicitly identified in the url of the original request.
 
 	input.php: This is the secret sauce script that catches the
-	telephones from the javascript player and tracks the user stats.
+	requests from the javascript player and tracks the user stats.
 	Basically at launch of the music player a unique id number for the
 	specific player session is generated (see the javascript comments in
 	the audio-player.php file for a description of this generation) when
@@ -72,7 +77,7 @@ The only change I have made since May to this source code is I have gone through
 	time stamp to be recorded, the current actual time of the record, and
 	the date.
 	
-	This info is then used by the script to first my a MYSQL
+	This info is then used by the script to first make a MYSQL
 	select query with the given unique id to see if it already exists. If
 	it does not then that must mean this is the first tracking event and
 	so a new record must be created using a insert query. But if the track
