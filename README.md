@@ -28,4 +28,26 @@ The only change I have made since May to this source code is I have gone through
 
 	countplaytime.php: This script performs a simple MYSQL query to figure out how many plays a particular track has.
 
-	delete.php: This is the script that 
+	delete.php: This is the script that delete an audio file from the system, its associated SQL Track Info, and also all of the tracks records.
+
+	index.php: A simple page the redirects a base request to the login.php page. With hindsight I now know that this can be more easily and efficently achieved using the apache .htaccess file and using either the special number redirects, or in this case setting the .htaccess file so that the login.php is the default page when none is explicitly identified in the url of the original request.
+
+	input.php: This is the secret sauce script that catches the telephones from the javascript player and tracks the user stats. Basically at launch of the music player a unique id number for the specific player session is generated (see the javascript comments in the audio-player.php file for a description of this generation) when ever a play time analytic is to be recorded the javascript player sends a request off to this endpoint with a few bits of info: the above described unqiue session id called the 'id', the track id, the time stamp to be recorded, the current actual time of the record, and the date.
+	
+	This info is then used by the script to first my a MYSQL select query with the given unique id to see if it already exists. If it does not then that must mean this is the first tracking event and so a new record must be created using a insert query. But if the track id does already exist then that means that all that must be done is update the track played time stamp analytic with the new time stamp.
+
+	login.php: This page manages the login process for the client console. If a php_session has already been initalized then the script sends the user off to console.php to display the console. If not then a login prompt is displayed. Logins enter here are then verified with the authenticate.php script.
+
+	logout.php: A simple script that handles destroying the php_session on logout and displaying a page that confirms a successful logout.
+
+	playtime.php: A script that performs a simple MYSQL query to get the total amount of time that a single track has been played.
+
+	query.php: This script queries the table of all analytics records and then packages them into a colon delimited string stream to be sent back to the console javascript program. In hindsight I would rewrite the functioning of this element to take in a range and starting index of the request so that the query would not return all the results of the entire table. Since most of the results end up being thrown out by the console program during parsing of a particular page of results this means the server is doing way too much work. I get away with it in this project because it is small and has low demand.
+
+	removerecord.php: Deletes a specific record from the MYSQL database based upon a provided id.
+
+	trackinfo.php: Fetches the track info from the MYSQL database to be used by both the javascript player and console. Packages the data into a string stream that is comma delimited.
+
+	updatePassword.php: A script to update the password.
+
+	upload.php: A script to take a audio file uploaded via the client console.
