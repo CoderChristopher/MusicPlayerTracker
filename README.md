@@ -1,7 +1,7 @@
 # MusicPlayerTracker
 This was I project I worked on for a client in May of 2020. The goal of the project was to develop a javascript audio player for his website that would be able to track simple listener analytics for his music content such as playtime, referral urls, and number of listens.
 
-The project has to major components, the javascript coded public facing part that plays the music, tracks the info, and ships it off to a server; and the private facing component that catches the data, manages the mysql database, and provides a web interface for viewing the data and uploading new audio files to the system.
+The project has two major components: the javascript coded public facing part that plays the music, tracks the info, and ships it off to a server; and the private facing component that catches the data, manages the mysql database, and provides a web interface for viewing the data and uploading new audio files to the system.
 
 To view an example of what the audio player looks like check out:
 
