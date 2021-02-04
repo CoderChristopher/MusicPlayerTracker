@@ -38,6 +38,7 @@ window.addEventListener("keydown",event=>{
 		submit();
 	}
 });
+//ajax function for submitting the password and taking the appropriate action/writing the appropriate message
 function submit(){
 	var request = new XMLHttpRequest();
 	request.onreadystatechange=function(){

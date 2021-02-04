@@ -1,5 +1,7 @@
 <?php
+
 $start=microtime();
+//origin checking...
 if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	$origin = $_SERVER["HTTP_ORIGIN"];
 	
@@ -13,6 +15,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 		exit; 
 	}
 }
+//do some check checks for sql injection attempts, malformed data, etc.
 if(!isset($_REQUEST['id'])&&!is_numeric($_REQUEST['time'])&&!isset($_REQUEST['time'])&&!is_numeric($_REQUEST['time'])&&strpos($_REQUEST['utm'],"'")!==false&&strpos($_REQUESTT['utm'],"\"")!==false){
 	echo "Appropriate request information not set!";
 	exit;
@@ -27,6 +30,9 @@ if(!isset($_REQUEST['trackid'])||!isset($_REQUEST['id'])){
 	exit;
 }
 echo "Connection successfully established!</br>";
+//Do a select check. If the select turns up no rows then must mean this is the first time a request has been done with this
+//unique session id. So therefore a new record must be generated with a insert statement.
+//Otherwise just go and update the record using the given session id
 $res = mysqli_query($con, "select * from marcmusicplayer.Music where id=\"".$_REQUEST['id']."\";");
 if($res->num_rows==0){
 	$res = mysqli_query($con,"insert into marcmusicplayer.Music (id,time,utm,trackid,date) values (\"".$_REQUEST['id']."\",".$_REQUEST['time'].",\"".$_REQUEST['utm']."\",".$_REQUEST['trackid'].",".time().");");
@@ -36,5 +42,6 @@ if($res->num_rows==0){
 	echo "update</br>";
 }
 mysqli_close($con);
+//This is really just a simple timer I was using to track how long it took for this function to run when I was looking for bottle necks
 echo "Runtime:".(microtime()-$start)."</br>";
 ?>

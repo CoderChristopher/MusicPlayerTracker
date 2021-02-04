@@ -1,8 +1,7 @@
 <?php
-/*if(strcmp($_SERVER['HTTP_ORIGIN'],"https://www.copelandwebdesign.com")!==0){
-	echo "bad origin:".$_SERVER['HTTP_ORIGIN'];
-	exit;
-}*/
+//is_numeric to guard against SQL Injection, see avgpercentage.php comment for more words on this.
+//s variable is trackid to reference
+//g variable is a simple flag to indicate whether to include 'plays' with no time or not
 if(isset($_REQUEST['s'])&&is_numeric($_REQUEST['s'])){
 	$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","--------");
 	if(!isset($_REQUEST['g']))

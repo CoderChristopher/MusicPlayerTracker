@@ -1,4 +1,5 @@
 <?php
+//Origin checking for trusted origins...
 if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	$origin = $_SERVER["HTTP_ORIGIN"];
 	
@@ -12,6 +13,8 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 		exit; 
 	}
 }
+//s represents track id to be referenced
+//Is numeric to prevent SQL injection, see other comment on avgpercentage.php for more words on this
 if(isset($_REQUEST['s'])&&is_numeric($_REQUEST['s'])){
 	$con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","--------");
 	$res = mysqli_query($con,"select avg(time) from marcmusicplayer.Music where time>0 and trackid=\"".$_REQUEST['s']."\";");	

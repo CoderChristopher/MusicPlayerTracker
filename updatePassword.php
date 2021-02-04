@@ -1,4 +1,5 @@
 <?php
+//Check origin for trusted site
 if(isset($_SERVER["HTTP_ORIGIN"])===true){
 	$origin=$_SERVER["HTTP_ORIGIN"];
 	if(strcmp($origin,"https://www.copelandwebdesign.com")!==0)

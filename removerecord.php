@@ -1,4 +1,5 @@
 <?php
+//Origin check for trusted sites...
 if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 	$origin = $_SERVER["HTTP_ORIGIN"];
 	
@@ -14,6 +15,7 @@ if (isset($_SERVER["HTTP_ORIGIN"]) === true) {
 		exit; 
 	}
 }
+//Check to prevent SQL injection
 if(!is_numeric($_REQUEST['i']))
 	exit;
 $con = mysqli_connect("mysql.copelandwebdesign.com","--redacted--","-------");
